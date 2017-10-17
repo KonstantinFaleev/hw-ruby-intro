@@ -3,7 +3,8 @@
 # Part 1
 
 def sum arr
-  # Define a method sum(array) that takes an array of integers as an argument and returns the sum of its elements. For an empty array it should return zero.
+  # Define a method sum(array) that takes an array of integers as an argument and returns the sum of its elements.
+  # For an empty array it should return zero.
   arramount=0
   for x in arr
     arramount+=x
@@ -12,7 +13,8 @@ def sum arr
 end
 
 def max_2_sum arr
-  # Define a method max_2_sum(array) which takes an array of integers as an argument and returns the sum of its two largest elements. For an empty array it should return zero. For an array with just one element, it should return that element.
+  # Define a method max_2_sum(array) which takes an array of integers as an argument and returns the sum of its two largest elements.
+  # For an empty array it should return zero. For an array with just one element, it should return that element.
   if arr.size==0
     return 0
   elsif arr.size==1
@@ -38,7 +40,9 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # Define a method sum_to_n?(array, n) that takes an array of integers and an additional integer, n, as arguments and returns true if any two elements in the array of integers sum to n. sum_to_n?([], n) should return false for any value of n, by definition.
+  # Define a method sum_to_n?(array, n) that takes an array of integers and an additional
+  # integer, n, as arguments and returns true if any two elements in the array of integers
+  # sum to n. sum_to_n?([], n) should return false for any value of n, by definition.
   for x in 0...arr.size
     for y in 0...x
       if(arr[x]+arr[y]==n)
@@ -55,19 +59,54 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  # Define a method hello(name) that takes a string representing a name and returns the string "Hello, "
+  # concatenated with the name.
+  return "Hello, #{name}"
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  # Define a method starts_with_consonant?(s) that takes a string and returns true if it starts with a consonant
+  # and false otherwise. (For our purposes, a consonant is any letter other than A, E, I, O, U.) NOTE: be sure it
+  # works for both upper and lower case and for nonletters!
+  if s=~/^[^aeiouAEIOU]/
+    if(s =~ /^[a-zA-Z]/)
+      return true
+    end
+    return false
+  else
+    return false
+  end
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  # Define a method binary_multiple_of_4?(s) that takes a string and returns true if the string represents a binary
+  # number that is a multiple of 4. NOTE: be sure it returns false if the string is not a valid binary number!
+  if(s =~ /^[1|0]*$/)
+    if(s.end_with?('00') || s=='00' || s=='0')
+      return true
+    end
+    return false
+  else
+    return false
+  end
+end
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+# Define a class BookInStock which represents a book with an ISBN number, isbn, and price of the book as
+# a floating-point number, price, as attributes.
+  def initialize(isbn,price)
+    if(isbn.empty? || price<=0)
+      raise ArgumentError ,'Argument Error'
+    end
+    @isbn =isbn
+    @price =price
+  end
+  attr_accessor:isbn
+  attr_accessor:price
+  def price_as_string
+    return '$'+'%.2f' % price
+  end
 end
